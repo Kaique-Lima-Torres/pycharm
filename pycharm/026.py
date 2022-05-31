@@ -1,0 +1,5 @@
+frase = str(input('digite uma frase:')).upper().strip()
+n1 = frase.count('A')
+n2 = (frase.find('A')+1)
+n3 = (frase.rfind('A')+1)
+print(f'o nome tem {n1} no total\no primeiro A aparece na {n2} posicao\no ultimo A aparece na {n3} posicao')
