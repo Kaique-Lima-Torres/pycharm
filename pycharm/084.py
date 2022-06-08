@@ -6,10 +6,12 @@ while True:
     dado.append(float(input('peso:')))
     galera.append(dado[:])
     dado.clear()
-    reposta = str(input('quer continuar? [S/N]')).upper().strip()[0]
-    if reposta in 'N':
-        print('programa encerrando!')
-        print('aguarde para ver o resultado ')
+    continuacao = str(input('vc deseja continuar? [S/N]')).upper().strip()
+    while continuacao not in 'SsNn':
+        continuacao = str(input('digite uma resposta valida [S/N]')).upper().strip()
+    if continuacao == 'N':
+        print('encerrando o programa')
+        print('espere para o seu resultado')
         sleep(1)
         break
 print(f'ao todo vc cadastrou  pessoas {len(galera)}')
