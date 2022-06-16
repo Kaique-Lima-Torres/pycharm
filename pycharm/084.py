@@ -1,29 +1,21 @@
 from time import sleep
-pessoas = list()
-dados = list()
-pessoas_pesso = list()
+galera = list()
+dado = list()
 while True:
-    pessoas.append(str(input('nome: ')))
-    peso = (float(input('peso: ')))
-    continuacao = str(input('deseja continuar? [S/N]')).strip().upper()
-    pessoas.append(peso)
-    pessoas_pesso.append(peso)
-    dados.append(pessoas[:])
-    pessoas.clear()
+    dado.append(str(input('nome:')))
+    dado.append(float(input('peso:')))
+    galera.append(dado[:])
+    dado.clear()
+    continuacao = str(input('vc deseja continuar? [S/N]')).upper().strip()
     while continuacao not in 'SsNn':
-        continuacao = str(input('Digite uma opcao valida [S/N]')).strip().upper()
+        continuacao = str(input('digite uma resposta valida [S/N]')).upper().strip()
     if continuacao == 'N':
-        print('programa encerrando!')
-        print('aguarde para ver o resultado ')
+        print('encerrando o programa')
+        print('espere para o seu resultado')
         sleep(1)
         break
-print(f'ao todo vc cadastrou {len(dados)} pessoas')
-maior_peso = list()
-menor_peso = list()
-for p in dados:
-    if p[1] >= max(pessoas_pesso):
-        maior_peso.append(p[0])
-    elif p[1] <= min(pessoas_pesso):
-        menor_peso.append(p[0])
-print(f'o maior peso foi de {max(pessoas_pesso)}, e as pessaos foram {maior_peso}')
-print(f'o menor peso foi de {min(pessoas_pesso)}, e as pessoas {menor_peso}')
+print(f'ao todo vc cadastrou  pessoas {len(galera)}')
+idx, max_value = max(galera, key=lambda item: item[1])
+print('o peso maximo foi de', max_value, "e foi de ", idx)
+idx, min_value = min(galera, key=lambda item: item[1])
+print('o peso minimo foi de', min_value, "e foi de ", idx)
